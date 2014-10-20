@@ -132,6 +132,11 @@ setup(
         'psycopg2>=2.5.1',
         'shapely>=1.2.17'
     ],
+    extras_require={
+        'Oracle': [
+            'cx_Oracle>=5.1.3'
+        ]
+    },
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",

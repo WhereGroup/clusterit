@@ -90,8 +90,13 @@ class Cluster(object):
 
 
 def get_clusters(id, config, bbox, resolution):
-    if config['type'].lower() == 'sql':
-        features = sql.get_features(id, config, bbox)
+    conn_type = config['type'].lower()
+    if  conn_type in ['sql', 'sql+postgis']:
+        import sql.postgis
+        features = sql.postgis.get_features(id, config, bbox)
+    elif conn_type == 'sql+oracle':
+        import sql.oracle
+        features = sql.oracle.get_features(id, config, bbox)
     else:
         features = []
 

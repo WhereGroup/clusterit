@@ -14,7 +14,7 @@ from feature import Feature
 
 
 def get_connection(id, config):
-    connection = getattr(current_app.extensions['clusterit']['sql'], id, None)
+    connection = current_app.extensions['clusterit']['sql'].get(id, None)
     if not connection:
         user = ''
         if config.get('user'):

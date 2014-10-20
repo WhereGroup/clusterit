@@ -1,0 +1,2 @@
+include versioneer.py
+include clusterit/_version.py
